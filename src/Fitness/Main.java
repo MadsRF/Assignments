@@ -5,53 +5,44 @@ import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) throws InterruptedException {
-
-        Instructor in = new Instructor("Tove","011080-1014",20);
-        Instructor in1 = new Instructor("Henning","011080-1014",15);
-        AdminPersonnel admin = new AdminPersonnel("Claus","221175-1011");
-        AdminPersonnel admin1 = new AdminPersonnel("anna","011080-1012");
-
-        List<Employee> employeeList = new ArrayList<>();
-        employeeList.add(admin);
-        employeeList.add(in);
-        employeeList.add(admin1);
-        employeeList.add(in1);
-
-        printEmployee();
-        for (Employee e: employeeList){
-            System.out.println(e.toString());
-        }
-        System.out.println("\n=====================================================\n\n");
-        Thread.sleep(1000);
-
-        Member m = new Member("Martin","221175-1011");
-        Member m2 = new Member("Marcel","221175-1011");
-        MemberPlus mP = new MemberPlus("Morten", "130195-1303");
-        MemberPlus mP1 = new MemberPlus("Martina", "050970-1409");
-
-        List<Member> MemberList = new ArrayList<>();
-        MemberList.add(mP);
-        MemberList.add(m);
-        MemberList.add(mP1);
-        MemberList.add(m2);
-
-        printMember();
-        for (Member men : MemberList){
-            System.out.println(men.toString());
-        }
-        System.out.println("\n=====================================================\n\n");
-        Thread.sleep(1000);
+    public static void main(String[] args) {
 
         List<Person> personList = new ArrayList<>();
-        personList.addAll(MemberList);
-        personList.addAll(employeeList);
 
-        printAll();
-        for (Person p : personList){
-            System.out.format("%-10S %-20S\n",p.firstName,p.CPR);
+        personList.add(new AdminPersonnel("Claus", "221175-1011"));
+        personList.add(new Instructor("Tove", "011080-1014", 20));
+        personList.add(new AdminPersonnel("anna", "011080-1012"));
+        personList.add(new Instructor("Henning", "011080-1014", 15));
+        personList.add(new MemberPlus("Morten", "130195-1303"));
+        personList.add(new Member("Martin", "221175-1011"));
+        personList.add(new MemberPlus("Martina", "050970-1409"));
+        personList.add(new Member("Marcel", "221175-1011"));
 
+        if (personList.size() == 0) {
+            System.out.println("No people on the list\n\n");
+        }
+        if (personList.size() > 1) {
+            printEmployee();
+            for (Person p : personList) {
+                if (p instanceof Employee) {
+                    System.out.println(p.toString());
+                }
+            }
+            System.out.println("\n=====================================================\n\n");
 
+            printMember();
+            for (Person p1 : personList) {
+                if (p1 instanceof Member) {
+                    System.out.println(p1.toString());
+                }
+            }
+            System.out.println("\n=====================================================\n\n");
+
+            printAll();
+            for (Person p2 : personList) {
+                System.out.format("%-10S %-20S\n", p2.firstName, p2.CPR);
+            }
+            System.out.println("\n=====================================================\n\n");
         }
     }
 
@@ -72,7 +63,4 @@ public class Main {
         System.out.format("%-10S %-20S\n","Name","Cpr");
         System.out.println("**************************************************************");
     }
-
-
-
 }
