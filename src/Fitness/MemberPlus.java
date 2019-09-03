@@ -1,3 +1,5 @@
+package Fitness;
+
 public class MemberPlus extends Member {
 
 

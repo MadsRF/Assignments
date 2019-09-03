@@ -1,3 +1,5 @@
+package Fitness;
+
 public class Employee extends Person {
 
     protected int hours;

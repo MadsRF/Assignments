@@ -1,3 +1,5 @@
+package Fitness;
+
 public abstract class Person {
 
     protected String firstName;
