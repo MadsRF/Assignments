@@ -12,6 +12,8 @@ public class Main {
     public static void main(String[] args) {
 
         List<Person> personList = new ArrayList<>();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String date = formatter.format(new Date());
 
 
         personList.add(new AdminPersonnel("Claus", "221175-1011",1));
@@ -22,15 +24,9 @@ public class Main {
         personList.add(new Member("Martin", "221175-1011"));
         personList.add(new MemberPlus("Martina", "050970-1409"));
         personList.add(new Member("Marcel", "221175-1011"));
-
-        //test UNDER 16
-        personList.add(new Member("Mads", "221110-1011"));
+        personList.add(new Member("Mads", "221110-1011"));//test UNDER 16
 
         for (int i = 0; i < personList.size(); i++) {
-
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-            String date = formatter.format(new Date());
-
             String temp = personList.get(i).getCPR();
             int year = Integer.parseInt((temp.substring(4, 6)));
             if (year < 20) {
@@ -41,21 +37,16 @@ public class Main {
 
             String month = String.format("%02d", Integer.parseInt(temp.substring(2, 4)));
             String day = String.format("%02d", Integer.parseInt(temp.substring(0, 2)));
-
-
             String birthday = year + "-" + month + "-" + day;
 
             LocalDate date1 = LocalDate.parse(birthday);
             LocalDate date2 = LocalDate.parse(date);
-
             long age = date1.until(date2, ChronoUnit.YEARS);
 
             if (age < 16) {
-                System.out.println(personList.get(i).getFirstName()+" "+personList.get(i).getCPR()+" "+"Has been deleted due to being underage");
+                System.out.println("\n"+personList.get(i).getFirstName()+" "+personList.get(i).getCPR()+" "+"Has been deleted due to being underage\n\n");
                 personList.remove(i);
-                i -= 1;
-
-
+                i =- 1;
             }
         }
 
