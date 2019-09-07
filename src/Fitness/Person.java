@@ -9,4 +9,8 @@ public abstract class Person {
         this.firstName = firstName;
         this.CPR = CPR;
     }
+
+    public String getCPR() {
+        return CPR;
+    }
 }

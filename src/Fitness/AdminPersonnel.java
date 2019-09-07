@@ -3,10 +3,16 @@ package Fitness;
 public class AdminPersonnel extends Employee {
 
     private Vehicle car = new Vehicle();
+    private int dateOfHiring;
 
-    public AdminPersonnel(String firstName, String CPR) {
+
+    public AdminPersonnel(String firstName, String CPR, int dateOfHiring) {
         super(firstName, CPR);
+        this.dateOfHiring = dateOfHiring;
+    }
 
+    public int getDateOfHiring(){
+        return dateOfHiring;
     }
 
     @Override
@@ -26,6 +32,12 @@ public class AdminPersonnel extends Employee {
 
     @Override
     public String toString() {
-        return String.format("%-10S %-20S %-10S %-10S %-10S %S", firstName,CPR,getHours(),getSalary(),getVacation(), car.getCar());
+
+        if(getDateOfHiring() == 1){
+            return String.format("%-10S %-20S %-10S %-10S %-10S %S", firstName, CPR, getHours(), getSalary(), getVacation(), car.getCar());
+
+        }else {
+            return String.format("%-10S %-20S %-10S %-10S %S", firstName, CPR, getHours(), getSalary(), getVacation());
+        }
     }
 }
