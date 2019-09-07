@@ -2,9 +2,11 @@ package Fitness;
 
 public class AdminPersonnel extends Employee {
 
+    private Vehicle car = new Vehicle();
 
     public AdminPersonnel(String firstName, String CPR) {
         super(firstName, CPR);
+
     }
 
     @Override
@@ -24,6 +26,6 @@ public class AdminPersonnel extends Employee {
 
     @Override
     public String toString() {
-        return String.format("%-10S %-20S %-10S %-10S %S", firstName,CPR,getHours(),getSalary(),getVacation());
+        return String.format("%-10S %-20S %-10S %-10S %-10S %S", firstName,CPR,getHours(),getSalary(),getVacation(), car.getCar());
     }
 }
