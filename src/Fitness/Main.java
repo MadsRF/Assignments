@@ -26,12 +26,12 @@ public class Main {
         //test UNDER 16
         personList.add(new Member("Mads", "221110-1011"));
 
-        for (int i = 0; i <= personList.size(); i++) {
+        for (int i = 0; i < personList.size(); i++) {
 
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             String date = formatter.format(new Date());
 
-            String temp = personList.get(0).getCPR();
+            String temp = personList.get(i).getCPR();
             int year = Integer.parseInt((temp.substring(4, 6)));
             if (year < 20) {
                 year += 2000;
@@ -39,8 +39,9 @@ public class Main {
                 year += 1900;
             }
 
-            int month = Integer.parseInt(temp.substring(2, 4));
-            int day = Integer.parseInt(temp.substring(0, 2));
+            String month = String.format("%02d", Integer.parseInt(temp.substring(2, 4)));
+            String day = String.format("%02d", Integer.parseInt(temp.substring(0, 2)));
+
 
             String birthday = year + "-" + month + "-" + day;
 
@@ -49,7 +50,13 @@ public class Main {
 
             long age = date1.until(date2, ChronoUnit.YEARS);
 
-            System.out.println(age);
+            if (age < 16) {
+                System.out.println(personList.get(i).getFirstName()+" "+personList.get(i).getCPR()+" "+"Has been deleted due to being underage");
+                personList.remove(i);
+                i -= 1;
+
+
+            }
         }
 
         if (personList.size() == 0) {
@@ -96,7 +103,6 @@ public class Main {
         System.out.println("EMPLOYEES & FITNESS MEMBERS Name and cpr");
         System.out.format("%-10S %-20S\n","Name","Cpr");
         System.out.println("**************************************************************");
-
 
     }
 }

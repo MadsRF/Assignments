@@ -13,4 +13,8 @@ public abstract class Person {
     public String getCPR() {
         return CPR;
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
 }
