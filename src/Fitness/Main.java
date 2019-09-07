@@ -26,7 +26,7 @@ public class Main {
         //test UNDER 16
         personList.add(new Member("Mads", "221110-1011"));
 
-        for (int j = 0; j < personList.size(); j++) {
+        for (int i = 0; i <= personList.size(); i++) {
 
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             String date = formatter.format(new Date());
@@ -50,9 +50,8 @@ public class Main {
             long age = date1.until(date2, ChronoUnit.YEARS);
 
             System.out.println(age);
-
         }
-/*
+
         if (personList.size() == 0) {
             System.out.println("No people on the list\n\n");
         }
@@ -98,6 +97,6 @@ public class Main {
         System.out.format("%-10S %-20S\n","Name","Cpr");
         System.out.println("**************************************************************");
 
-*/
+
     }
 }
