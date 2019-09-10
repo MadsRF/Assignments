@@ -15,7 +15,6 @@ public class Main {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         String date = formatter.format(new Date());
 
-
         personList.add(new AdminPersonnel("Claus", "221175-1011",1));
         personList.add(new Instructor("Tove", "011080-1014", 20));
         personList.add(new AdminPersonnel("anna", "011080-1012",1));
