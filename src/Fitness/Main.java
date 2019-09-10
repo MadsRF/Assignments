@@ -24,6 +24,7 @@ public class Main {
         personList.add(new MemberPlus("Martina", "050970-1409"));
         personList.add(new Member("Marcel", "221175-1011"));
         personList.add(new Member("Mads", "221110-1011"));//test UNDER 16
+        personList.add(new Member("Mikkel", "221112-1011"));//test UNDER 16
 
         for (int i = 0; i < personList.size(); i++) {
             String temp = personList.get(i).getCPR();
@@ -43,11 +44,12 @@ public class Main {
             long age = date1.until(date2, ChronoUnit.YEARS);
 
             if (age < 16) {
-                System.out.println("\n"+personList.get(i).getFirstName()+" "+personList.get(i).getCPR()+" "+"Has been deleted due to being underage\n\n");
+                System.out.print("\n"+personList.get(i).getFirstName()+" "+personList.get(i).getCPR()+" "+"Has been deleted due to being underage");
                 personList.remove(i);
                 i =- 1;
             }
         }
+        System.out.println("\n\n");
 
         if (personList.size() == 0) {
             System.out.println("No people on the list\n\n");
